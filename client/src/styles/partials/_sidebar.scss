@@ -1,0 +1,103 @@
+.sidebar {
+  flex-shrink: 0;
+  height: 100%;
+  padding: 15px;
+  width: 312px;
+  background-color: #1a1d21cc;
+  border-radius: 10px;
+
+  .admin-container {
+    height: 80px;
+    width: 100%;
+    background: linear-gradient(
+      117.58deg,
+      rgba(215, 237, 237, 0.16) -47.79%,
+      rgba(204, 235, 235, 0) 100%
+    );
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    .admin {
+      display: flex;
+      background: none;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 40px;
+        width: 40px;
+        background: none;
+        cursor: pointer;
+      }
+      p {
+        font-size: 16px;
+        color: white;
+        font-family: Poppins;
+        background: none;
+        align-content: center;
+        margin-left: 16px;
+      }
+    }
+
+    img {
+      height: 24px;
+      width: 24px;
+      background: none;
+      cursor: pointer;
+    }
+  }
+
+  .searchbar-container {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    border-bottom: 1px solid var(--Noble-Black-700, #131619);
+    img {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1 0 0;
+    }
+
+    p {
+      color: var(--Noble-Black-100, #e8e9e9);
+
+      /* Body/M/SemiBold */
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 142.857% */
+      letter-spacing: 0.15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .data-record-container {
+    padding: 10px;
+    margin-top: 20px;
+    .today,
+    .yesterday {
+      display: flex;
+      img {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex: 1 0 0;
+      }
+
+      p {
+        color: var(--Noble-Black-100, #e8e9e9);
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.15px;
+        margin-top: 2px;
+      }
+    }
+  }
+}

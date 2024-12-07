@@ -1,0 +1,4 @@
+.env
+audio/
+captured/
+**/__pycache__/

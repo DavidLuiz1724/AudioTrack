@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.App {
+  display: flex;
+}
+
+@import "partials/sidebar.scss";
+@import "partials/navbar.scss";
+@import "partials/signin.scss";
+@import "partials/signup.scss";
+@import "partials/dashboard.scss";
+.layout {
+  display: flex;
+  height: 100vh;
+  background: var(--Noble-Black-500, #363a3d);
+}
+
+.content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container {
+  padding: 30px;
+  .list-header {
+    h1 {
+      color: var(--Noble-Black-0, #fff);
+
+      /* Heading/M/Bold */
+      font-family: Poppins;
+      font-size: 25px;
+      font-style: thin;
+      line-height: 36px; /* 128.571% */
+    }
+
+    p {
+      display: flex;
+      width: 90%;
+      height: 55px;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--Noble-Black-300, #9b9c9e);
+
+      /* Body/L/Medium */
+      font-size: 16px;
+      font-style: normal;
+      line-height: 24px; /* 150% */
+      letter-spacing: 0.15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .list-total {
+    display: flex;
+    .list {
+      .url-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        span {
+          color: white;
+          padding-left: 20px;
+          padding-top: 12px;
+          width: 65%;
+          height: 50px;
+          flex-shrink: 0;
+          border-radius: 12px;
+          margin-right: 20px;
+          border-top: 1px solid var(--Glass-Stroke, rgba(255, 255, 255, 0.08));
+          background: var(
+            --Glass-Fill,
+            linear-gradient(
+              118deg,
+              rgba(215, 237, 237, 0.16) -47.79%,
+              rgba(204, 235, 235, 0) 100%
+            )
+          );
+        }
+
+        .list-view-btn {
+          display: flex;
+          width: 120px;
+          height: 47px;
+          padding: 8px 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+          border-radius: 12px;
+          background: var(--Stem-Green-500, #b6f09c);
+        }
+
+        .url-delete-btn {
+          display: flex;
+          width: 120px;
+          height: 47px;
+          padding: 8px 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+          border-radius: 12px;
+          background: var(--Stem-Green-500, #ff5a00);
+        }
+      }
+    }
+  }
+
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(215, 237, 237, 0.16);
+
+    .time-list {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      display: flex;
+      overflow: hidden;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+
+      .head {
+        display: flex;
+        align-items: center;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 32px;
+      }
+
+      .close {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .table {
+        padding-top: 16px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+
+        .file {
+          width: 150px;
+          padding: 8px 12px;
+        }
+
+        .time {
+          padding: 8px 12px;
+        }
+
+        .thead {
+          font-weight: 500;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+          height: 48px;
+        }
+
+        .tbody {
+          color: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+}

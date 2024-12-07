@@ -1,0 +1,7 @@
+Django
+django-rest-framework
+django-cors-headers
+celery
+redis
+librosa==0.10.2
+soundfile

@@ -1,0 +1,92 @@
+.navbar {
+    width: 100%;
+    height: 91px;
+    padding-left: 40px;
+
+    .navbar-wrapper {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 52.8%, rgba(0, 0, 0, 0.00) 100%);
+        display: flex;
+        justify-content: space-between;
+        border-radius: 20px;
+        border-radius: 16px;
+    }
+    
+    .symbol-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        background: none;
+        img {
+            position: absolute;
+            transform: translateX(-50%);
+                width: 95px;
+                height: 104px;
+                background: none;
+            }
+
+        p {
+            padding-left: 40px;
+            align-content: center;
+            margin-left: 28px;
+            font-family: Poppins;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+            color: white;
+            background: none;
+        }
+    }
+
+    .navbar-right {
+        display: flex;
+        background: none;
+        .alerts, .assistant, .talk-pro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+
+            img {
+                width: 16px;
+                height: 21px;
+                background: none;
+            }
+
+            p {
+                color: #686B6E;
+                align-content: center;
+                margin-left: 10px;
+                background: none;
+            }
+        }
+
+        .alerts {
+            p {
+                width: 60px;
+            }
+        }
+        .assistant {
+            img {
+                width: 21px;
+            }
+            p {
+                width: 250px;
+            }
+        }
+
+        .talk-pro {
+            img {
+                width: 28px;
+            }
+            p{
+            width: 100px;
+            margin-right: 10px;
+            }
+        }
+    }
+}
