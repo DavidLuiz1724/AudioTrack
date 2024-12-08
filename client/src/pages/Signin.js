@@ -1,6 +1,26 @@
+import { useState } from "react";
 import signin_img from "../assets/signin_img.png";
+import axios from "axios";
+import { BASE_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleSubmit = () => {
+    axios.post(`${BASE_URL}/api/signin/`, {
+      "email": email,
+      "password": password,
+    }).then((res) => {
+      localStorage.clear()
+      localStorage.setItem('token', res.data.access);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.access}`;
+    }).then(() => {
+      navigate("/dashboard");
+    })
+  }
   return (
     <div className="signin-container">
       <div className="signin-box">
@@ -13,10 +33,10 @@ export default function Signin() {
           </div>
           <form className="login-form">
             <div className="input-group">
-              <input type="email" id="email" placeholder="Admin@gmail.com" />
+              <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Admin@gmail.com" />
             </div>
             <div className="input-group">
-              <input type="password" id="password" placeholder="Password" />
+              <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
             </div>
             {/* <div className="options">
               <label>
@@ -24,7 +44,7 @@ export default function Signin() {
               </label>
               <a href="/forgot-password">Forgot Password?</a>
             </div> */}
-            <button type="submit" className="btn-login">
+            <button type="submit" className="btn-login" onClick={handleSubmit}>
               Log in
             </button>
           </form>

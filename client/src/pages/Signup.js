@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import signin_img from "../assets/signin_img.png";
+import axios from "axios";
+import { BASE_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate()
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = () => {
+    axios.post(`${BASE_URL}/api/signup/`, {
+      "first_name": firstName,
+      "last_name": lastName,
+      "email": email,
+      "password": password
+    }).then(() => {
+      navigate("/signin");
+    })
+  }
+
   return (
     <div className="signup-container">
       <div className="signup-box">
@@ -15,23 +34,17 @@ const Signup = () => {
           <form className="signup-form">
             <div className="signup-name">
               <div className="input-group">
-                <input type="text" id="firstname" placeholder="First name" />
+                <input type="text" id="firstname" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="First name" />
               </div>
               <div className="input-group">
-                <input type="text" id="lastname" placeholder="Last name" />
+                <input type="text" id="lastname" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last name" />
               </div>
             </div>
-            <div className="signup-password">
-              <div className="input-group">
-                <input type="password" id="password" placeholder="Password" />
-              </div>
-              <div className="input-group">
-                <input
-                  type="password"
-                  id="repassword"
-                  placeholder="Repeat Password"
-                />
-              </div>
+            <div className="input-group">
+              <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+            </div>
+            <div className="input-group">
+              <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
             </div>
             {/* <div className="options">
               <label>
@@ -39,7 +52,7 @@ const Signup = () => {
               </label>
               <a href="/forgot-password">Forgot Password?</a>
             </div> */}
-            <button type="submit" className="btn-login">
+            <button type="submit" className="btn-login" onClick={handleSubmit}>
               Sign Up
             </button>
           </form>

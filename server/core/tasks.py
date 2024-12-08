@@ -43,7 +43,7 @@ def track_audio_from_url(stream_id):
     min = int(seconds / 60) - 60 * int(seconds / 3600)
     sec = seconds - 60 * int(seconds / 60)
     today = datetime.now()
-    output_filename = f"{output_dir}/{today.strftime('%Y-%m-%d_%H-%M-%S')}.wav"
+    output_filename = f"{output_dir}/{today.strftime('%Y-%m-%d_%H-%M-%S')}_{stream_id}.wav"
 
     # Command to use ffmpeg to capture the stream
     command = [
@@ -63,8 +63,8 @@ def track_audio_from_url(stream_id):
 
     for audio_file in os.listdir(output_dir):
         filename = os.path.basename(audio_file)
-        date = datetime.strptime(filename[:-4], "%Y-%m-%d_%H-%M-%S")
-        if date + timedelta(hours=6) < today:
+        date = datetime.strptime(filename[:19], "%Y-%m-%d_%H-%M-%S")
+        if date + timedelta(hours=2) < today:
             os.remove(f"{output_dir}/{audio_file}")
     
     for file in files:

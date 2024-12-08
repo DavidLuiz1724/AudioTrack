@@ -1,5 +1,6 @@
 Django
 django-rest-framework
+djangorestframework-simplejwt
 django-cors-headers
 celery
 redis

@@ -60,24 +60,25 @@
         .signup-password {
           display: flex;
           gap: 24px;
-          .input-group {
-            margin-bottom: 24px;
-            input {
-              display: flex;
-              height: 48px;
-              padding: 0px 16px;
-              align-items: center;
-              gap: 12px;
-              align-self: stretch;
-              border-radius: 8px;
-              border: 1px solid var(--gradients-blue-green-500, #82dbf7);
-              background: var(--Noble-Black-600, #1a1d21);
+        }
 
-              /* Outline/Heisenberg Blue */
-              box-shadow: 0px 0px 0px 4px rgba(132, 220, 245, 0.24);
-              color: white;
-              cursor: pointer;
-            }
+        .input-group {
+          margin-bottom: 24px;
+          input {
+            display: flex;
+            height: 48px;
+            padding: 0px 16px;
+            align-items: center;
+            gap: 12px;
+            align-self: stretch;
+            border-radius: 8px;
+            border: 1px solid var(--gradients-blue-green-500, #82dbf7);
+            background: var(--Noble-Black-600, #1a1d21);
+
+            /* Outline/Heisenberg Blue */
+            box-shadow: 0px 0px 0px 4px rgba(132, 220, 245, 0.24);
+            color: white;
+            cursor: pointer;
           }
         }
 

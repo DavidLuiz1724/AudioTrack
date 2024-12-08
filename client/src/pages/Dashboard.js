@@ -1,6 +1,6 @@
 import upload from "../assets/upload.jpg";
 import success from "../assets/upload_success.svg";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import {BASE_URL} from '../config';
