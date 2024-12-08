@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainSerializer as JwtTokenObtainPairSerializer
 from apis.models import StreamURL, AudioFile, AudioDetect
