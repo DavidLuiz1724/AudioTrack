@@ -15,9 +15,6 @@ export const handleSignIn = async (user) => {
           'Authorization'
         ] = `Bearer ${res.data.access}`
       })
-    await axios.get(BASE_URL + '/api/user/').then((res) => {
-      localStorage.setItem('user', res.data)
-    })
   }
   
   export const handleSignUp = async (user) => {
