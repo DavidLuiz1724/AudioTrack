@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import signin_img from "../assets/signin_img.png";
 import { useNavigate } from "react-router-dom";
 import { handleSignIn } from "../utils";
@@ -7,6 +7,10 @@ export default function Signin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  useEffect(() => {
+    localStorage.clear();
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
