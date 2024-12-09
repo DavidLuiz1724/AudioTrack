@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const BASE_URL = "http://localhost:8000"
+export const BASE_URL = ""
 
 export const handleSignIn = async (user) => {
     await axios
@@ -15,9 +15,6 @@ export const handleSignIn = async (user) => {
           'Authorization'
         ] = `Bearer ${res.data.access}`
       })
-    await axios.get(BASE_URL + '/api/user/').then((res) => {
-      localStorage.setItem('user', res.data)
-    })
   }
   
   export const handleSignUp = async (user) => {
