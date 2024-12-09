@@ -38,6 +38,7 @@ class CustomUser(AbstractUser):
         return self.email
 
 class StreamURL(models.Model):
+    name = models.CharField(max_length=200, null=True)
     url = models.CharField(max_length=255, unique=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -47,6 +48,7 @@ class StreamURL(models.Model):
     
 class AudioFile(models.Model):
     audio = models.FileField(upload_to="audio")
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -56,7 +58,7 @@ class AudioFile(models.Model):
 class AudioDetect(models.Model):
     stream = models.ForeignKey(StreamURL, on_delete=models.CASCADE)
     file = models.ForeignKey(AudioFile, on_delete=models.CASCADE)
-    time = models.DateTimeField()
+    time = models.DateTimeField(null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
