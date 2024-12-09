@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
@@ -15,10 +16,9 @@ class SignUpView(APIView):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             get_user_model().objects.create_user(**serializer.validated_data)
-            return HttpResponse(status=status.HTTP_201_CREATED)
-        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
-
-
+            return Response(status=status.HTTP_201_CREATED)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
 class EmailTokenObtainPairView(TokenObtainPairView):
     serializer_class = TokenObtainPairSerializer
 
@@ -50,6 +50,8 @@ class AudioFileView(viewsets.ModelViewSet):
         return queryset
     
     def post(self, request):
+        data = request.data
+        data["user"] = request.user
         serializer = AudioFileSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

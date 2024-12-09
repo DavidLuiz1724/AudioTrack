@@ -1,16 +1,17 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainSerializer as JwtTokenObtainPairSerializer
-from apis.models import StreamURL, AudioFile, AudioDetect
+from apis.models import StreamURL, AudioFile, AudioDetect, CustomUser
 
 class TokenObtainPairSerializer(JwtTokenObtainPairSerializer):
     username_field = get_user_model().USERNAME_FIELD
 
 
 class UserSerializer(serializers.ModelSerializer):
+    email = serializers.CharField()
     class Meta:
-        model = get_user_model()
-        fields = ('email', 'password')
+        model = CustomUser
+        fields = '__all__'
 
 
 class PasswordSerializer(serializers.Serializer):
