@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import signin_img from "../assets/signin_img.png";
 import axios from "axios";
-import { BASE_URL } from "../config";
 import { useNavigate } from "react-router-dom";
+import { handleSignIn, handleSignUp } from "../utils";
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -10,15 +10,16 @@ const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = () => {
-    axios.post(`${BASE_URL}/api/signup/`, {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = {
       "first_name": firstName,
       "last_name": lastName,
       "email": email,
       "password": password
-    }).then(() => {
-      navigate("/signin");
-    })
+    }
+    await handleSignUp(user);
+    navigate('/signin');
   }
 
   return (

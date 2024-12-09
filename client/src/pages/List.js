@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../config";
+import { BASE_URL } from "../utils";
 
 const List = () => {
   const [streams, setStreams] = useState([]);

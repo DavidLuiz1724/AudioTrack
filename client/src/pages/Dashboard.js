@@ -3,7 +3,7 @@ import success from "../assets/upload_success.svg";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import {BASE_URL} from '../config';
+import {BASE_URL} from '../utils';
 
 export default function Dashboard() {
   const [file, setFile] = useState(null);

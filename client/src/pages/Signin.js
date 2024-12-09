@@ -1,25 +1,21 @@
 import { useState } from "react";
 import signin_img from "../assets/signin_img.png";
-import axios from "axios";
-import { BASE_URL } from "../config";
 import { useNavigate } from "react-router-dom";
+import { handleSignIn } from "../utils";
 
 export default function Signin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleSubmit = () => {
-    axios.post(`${BASE_URL}/api/signin/`, {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = {
       "email": email,
-      "password": password,
-    }).then((res) => {
-      localStorage.clear()
-      localStorage.setItem('token', res.data.access);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.access}`;
-    }).then(() => {
-      navigate("/dashboard");
-    })
+      "password": password
+    }
+    await handleSignIn(user);
+    navigate('/dashboard');
   }
   return (
     <div className="signin-container">
