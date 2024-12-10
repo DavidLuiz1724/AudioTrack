@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../utils";
+import { Link } from "react-router-dom";
+import Arrow from "../assets/arrow-ios-back-svgrepo-com.svg";
 
 const List = () => {
   const [streams, setStreams] = useState([]);
@@ -31,7 +33,12 @@ const List = () => {
   return (
     <div className="list-container">
       <div className="list-header">
-        <h1>Audio Tracking List</h1>
+        <div className="title">
+          <Link to="/dashboard">
+            <img className="arrow" src={Arrow} />
+          </Link>
+          <h1>Audio Tracking List</h1>
+        </div>
         <p>
           Kickstart your learning with our comprehensive selection with Ed Tech.
           You can use the predefined prompts below and type in what you want to
