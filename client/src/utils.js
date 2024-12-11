@@ -15,6 +15,9 @@ export const handleSignIn = async (user) => {
           'Authorization'
         ] = `Bearer ${res.data.access}`
       })
+      .catch((err) => {
+        console.error("error", err)
+      })
   }
   
   export const handleSignUp = async (user) => {
@@ -29,5 +32,8 @@ export const handleSignIn = async (user) => {
         axios.defaults.headers.common[
           'Authorization'
         ] = `Bearer ${res.data.access}`
+      })
+      .catch((err) => {
+        console.error("error", err)
       })
   }
