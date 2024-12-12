@@ -45,5 +45,5 @@ class AudioDetectSerializer(serializers.ModelSerializer):
 
     def get_filename(self, obj):
         if obj.file and obj.file.audio:
-            return obj.file.audio.filename
+            return obj.file.audio.name
         return None
