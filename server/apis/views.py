@@ -50,13 +50,19 @@ class AudioFileView(viewsets.ModelViewSet):
         return queryset
     
     def post(self, request):
-        data = request.data
-        data["user"] = request.user
         serializer = AudioFileSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return HttpResponse(status=status.HTTP_200_OK)
         return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class UserView(APIView):
+
+    def get(self, request, pk=None):
+        user = request.user
+        if pk is not None:
+            user = CustomUser.objects.get(pk=pk)
+        return HttpResponse(user, status=status.HTTP_200_OK)
 
 class StreamURLView(viewsets.ModelViewSet):
     """
