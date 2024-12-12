@@ -195,8 +195,13 @@ body {
         display: flex;
         flex-direction: column;
 
+        .row {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
         .file {
-          width: 150px;
           padding: 8px 12px;
         }
 
