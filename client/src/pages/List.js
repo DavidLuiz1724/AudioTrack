@@ -87,7 +87,7 @@ const List = () => {
             
             <div className="table">
               <div className="thead">
-                <div className="file">File Name</div>
+                <div className="file">Audio File</div>
                 <div className="time">Time</div>
               </div>
               <div className="tbody">
