@@ -62,7 +62,7 @@ class UserView(APIView):
         user = request.user
         if pk is not None:
             user = CustomUser.objects.get(pk=pk)
-        return HttpResponse(user, status=status.HTTP_200_OK)
+        return HttpResponse(user.id, status=status.HTTP_200_OK)
 
 class StreamURLView(viewsets.ModelViewSet):
     """
