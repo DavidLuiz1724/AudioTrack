@@ -45,5 +45,5 @@ class AudioDetectSerializer(serializers.ModelSerializer):
 
     def get_audio_path(self, obj):
         if obj.file and obj.file.audio:
-            return obj.file.audio.path
+            return obj.file.audio.url
         return None
