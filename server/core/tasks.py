@@ -36,7 +36,8 @@ def track_audio_from_url(stream_id):
     maxlen = 0
     sample_rate = 44100
     for file in files:
-        ad_audio, sample_rate = librosa.load(file.audio.name, sr=sample_rate, mono=True)
+        audio_path = os.path.join(settings.MEDIA_ROOT, file.audio.name)
+        ad_audio, sample_rate = librosa.load(audio_path, sr=sample_rate, mono=True)
         if maxlen < len(ad_audio):
             maxlen = len(ad_audio)
 
