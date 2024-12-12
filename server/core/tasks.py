@@ -74,7 +74,7 @@ def track_audio_from_url(stream_id):
         _, match_score, correlation = find_audio_match(output_filename, ad_audio_path, sample_rate)
         if match_score > 0.9 * score:
             match_all = np.where(correlation > match_score * 0.95)
-            match_times = list(set(np.round(match_all / sample_rate)))
+            match_times = list(set(map(lambda n: int(np.round(n / sample_rate)), match_all)))
             
             for match_time in match_times:
                 if match_time < 1800:
