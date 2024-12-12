@@ -6,7 +6,7 @@ import Arrow from "../assets/arrow-ios-back-svgrepo-com.svg";
 
 const List = () => {
   const [streams, setStreams] = useState([]);
-  const [times, setTimes] = useState([]);
+  const [detects, setDetects] = useState([]);
   const [flag, setFlag] = useState(false);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const List = () => {
   const handleButtonClick = (id) => {
     axios.get(`${BASE_URL}/api/audio_time/?stream_id=${id}`).then((res) => {
       setFlag(true);
-      setTimes(res.data);
+      setDetects(res.data);
     }).catch((e) => console.error("error", e))
   };
 
@@ -87,11 +87,14 @@ const List = () => {
                 <div className="time">Time</div>
               </div>
               <div className="tbody">
-                {times.length > 0 ? (
-                  times.map((time) => (
+                {detects.length > 0 ? (
+                  detects.map((detect) => (
                   <div className="row">
-                    <div className="file">{time.file?.audio}</div>
-                    <div className="time">{time.time}</div>
+                    <audio className="file" controls>
+                      <source src={detect.audio_path} type="audio/wav"/>
+                    </audio>
+                    <div className="file">{detect.audio_path}</div>
+                    <div className="time">{new Date(detect.time).toLocaleString()}</div>
                   </div>
                 ))
               ) : (

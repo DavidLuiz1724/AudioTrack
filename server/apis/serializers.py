@@ -37,13 +37,13 @@ class AudioFileSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AudioDetectSerializer(serializers.ModelSerializer):
-    audio_path = serializers.SerializerMethodField()
+    filename = serializers.SerializerMethodField()
 
     class Meta:
         model = AudioDetect
         fields = '__all__'
 
-    def get_audio_path(self, obj):
+    def get_file_name(self, obj):
         if obj.file and obj.file.audio:
-            return obj.file.audio.url
+            return obj.file.audio.filename
         return None
