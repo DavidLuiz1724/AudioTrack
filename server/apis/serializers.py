@@ -10,7 +10,7 @@ class TokenObtainPairSerializer(JwtTokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = '__all__'
+        fields = ('id', 'first_name', 'last_name', 'email')
 
 
 class PasswordSerializer(serializers.Serializer):
