@@ -36,7 +36,7 @@ def track_audio_from_url(stream_id):
     maxlen = 0
     sample_rate = 44100
     for file in files:
-        ad_audio, sample_rate = librosa.load(os.path.join(settings.BASE_DIR, file.audio.name), sr=sample_rate, mono=True)
+        ad_audio, sample_rate = librosa.load(os.path.join(settings.BASE_DIR, f'server/{file.audio.name}'), sr=sample_rate, mono=True)
         if maxlen < len(ad_audio):
             maxlen = len(ad_audio)
 
@@ -70,7 +70,7 @@ def track_audio_from_url(stream_id):
             os.remove(f"{output_dir}/{audio_file}")
     
     for file in files:
-        ad_audio_path = os.path.join(settings.BASE_DIR, file.audio.name)
+        ad_audio_path = os.path.join(settings.BASE_DIR, f'server/{file.audio.name}')
         _, score, _ = find_audio_match(ad_audio_path, ad_audio_path, sample_rate)
         _, match_score, correlation = find_audio_match(output_filename, ad_audio_path, sample_rate)
         if match_score > 0.9 * score:
