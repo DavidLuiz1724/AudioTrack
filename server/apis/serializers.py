@@ -8,7 +8,6 @@ class TokenObtainPairSerializer(JwtTokenObtainPairSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    email = serializers.CharField()
     class Meta:
         model = CustomUser
         fields = '__all__'
@@ -32,6 +31,7 @@ class StreamURLSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AudioFileSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField()
     class Meta:
         model = AudioFile
         fields = '__all__'
