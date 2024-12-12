@@ -62,7 +62,10 @@ class UserView(APIView):
         user = request.user
         if pk is not None:
             user = CustomUser.objects.get(pk=pk)
-        return HttpResponse(user.id, status=status.HTTP_200_OK)
+        serializer = UserSerializer(data=user)
+        if serializer.is_valid():
+            return HttpResponse(serializer.data, status=status.HTTP_200_OK)
+        return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class StreamURLView(viewsets.ModelViewSet):
     """
