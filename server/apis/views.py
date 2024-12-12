@@ -67,7 +67,7 @@ class UserView(APIView):
             "id": user.id,
             "fullname": user.first_name + " " + user.last_name
         }
-        return HttpResponse(data, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 class StreamURLView(viewsets.ModelViewSet):
     """
