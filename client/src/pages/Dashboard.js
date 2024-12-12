@@ -20,9 +20,13 @@ export default function Dashboard() {
     if (file) {
       const form = new FormData();
       form.append('audio', file);
-      axios.post(`${BASE_URL}/api/audio/`, form);
-      setShowSuccess(true); // Show success message
-      setTimeout(() => setShowSuccess(false), 3000); // Auto-hide after 3 seconds
+      axios.post(`${BASE_URL}/api/audio/`, form).then(() => {
+        setShowSuccess(true); // Show success message
+        setTimeout(() => setShowSuccess(false), 3000); // Auto-hide after 3 seconds
+      }).catch((e) => {
+        console.error("error", e);
+      });
+      
     } else {
       alert("Please select a file to upload!");
     }
