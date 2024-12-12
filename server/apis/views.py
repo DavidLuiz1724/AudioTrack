@@ -37,6 +37,7 @@ class AudioDetectView(viewsets.ModelViewSet):
         if file_id is not None:
             queryset = queryset.filter(file__id=file_id)
         return queryset
+    
 
 class AudioFileView(viewsets.ModelViewSet):
     """
