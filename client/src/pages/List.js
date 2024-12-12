@@ -30,6 +30,10 @@ const List = () => {
     })
   };
 
+  const get_audio_path = (path) => {
+    
+  }
+
   return (
     <div className="list-container">
       <div className="list-header">
@@ -91,9 +95,8 @@ const List = () => {
                   detects.map((detect) => (
                   <div className="row">
                     <audio className="file" controls>
-                      <source src={detect.audio_path} type="audio/wav"/>
+                      <source src={detect.filename} type="audio/wav"/>
                     </audio>
-                    <div className="file">{detect.audio_path}</div>
                     <div className="time">{new Date(detect.time).toLocaleString()}</div>
                   </div>
                 ))
