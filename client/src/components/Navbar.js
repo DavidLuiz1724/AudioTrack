@@ -5,12 +5,13 @@ import assistant from '../assets/assistant.svg'
 import pro from '../assets/pro.svg'
 
 const Navbar = () => {
+    const user = JSON.parse(localStorage.getItem("user"))
   return (
     <div className='navbar'>
         <div className='navbar-wrapper'>
             <div className='symbol-container'>
                 <img src={symbol} />
-                <p>Welcome Back, Admin!</p>
+                <p>Welcome Back, {user.fullname}!</p>
             </div>
 
             <div className='navbar-right'>
