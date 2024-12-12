@@ -21,7 +21,7 @@ export const handleSignIn = async (user) => {
 
       await axios.get(BASE_URL + `/api/user/`).then((res) => {
         console.log("data", res.data);
-        localStorage.setItem("user_id", res.data)
+        localStorage.setItem("user", res.data)
       }).catch((err) => {
         console.error("error", err)
       })
