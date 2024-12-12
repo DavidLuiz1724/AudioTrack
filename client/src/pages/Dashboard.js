@@ -18,10 +18,10 @@ export default function Dashboard() {
 
   const handleSubmit = () => {
     if (file) {
-      const user_id = localStorage.getItem("user_id");
+      const user = JSON.parse(localStorage.getItem("user"));
       const form = new FormData();
       form.append('audio', file);
-      form.append('user_id', user_id);
+      form.append('user_id', user.id);
       axios.post(`${BASE_URL}/api/audio/`, form).then(() => {
         setShowSuccess(true); // Show success message
         setTimeout(() => setShowSuccess(false), 3000); // Auto-hide after 3 seconds
