@@ -18,8 +18,15 @@ export const handleSignIn = async (user) => {
       .catch((err) => {
         console.error("error", err)
       })
+
+      await axios.get(BASE_URL + `/api/user/`).then((res) => {
+        console.log("data", res.data);
+        localStorage.setItem("user_id", res.data)
+      }).catch((err) => {
+        console.error("error", err)
+      })
   }
-  
+
   export const handleSignUp = async (user) => {
     await axios
       .post(BASE_URL + '/api/signup/', user, {
