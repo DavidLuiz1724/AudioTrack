@@ -30,10 +30,6 @@ const List = () => {
     })
   };
 
-  const get_audio_path = (path) => {
-    
-  }
-
   return (
     <div className="list-container">
       <div className="list-header">
