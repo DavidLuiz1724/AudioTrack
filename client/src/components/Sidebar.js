@@ -9,7 +9,7 @@ export default function Sidebar() {
       <div className="admin-container">
         <div className="admin">
           <img src={avatar} />
-          <p>{user.fullname}</p>
+          <p>{user?.fullname}</p>
         </div>
 
         <img src={admin_setting} />

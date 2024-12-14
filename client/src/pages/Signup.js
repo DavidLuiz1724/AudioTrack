@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import signin_img from "../assets/signin_img.png";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { handleSignIn, handleSignUp } from "../utils";
+import { handleSignUp } from "../utils";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
