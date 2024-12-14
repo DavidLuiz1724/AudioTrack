@@ -47,7 +47,7 @@ class StreamURL(models.Model):
         return self.url
     
 class AudioFile(models.Model):
-    audio = models.FileField(upload_to="audio")
+    audio = models.FileField(upload_to="")
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
