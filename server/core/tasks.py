@@ -71,7 +71,7 @@ def track_audio_from_url(stream_id):
             os.remove(f"{output_dir}/{audio_file}")
     
     for file in files:
-        ad_audio_path = file.audio.name
+        ad_audio_path = os.path.join(settings.MEDIA_ROOT, file.audio.name)
         _, score, _ = find_audio_match(ad_audio_path, ad_audio_path, sample_rate)
         _, match_score, correlation = find_audio_match(output_filename, ad_audio_path, sample_rate)
         if match_score > 0.9 * score:
