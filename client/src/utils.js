@@ -1,7 +1,4 @@
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
-
-const navigate = useNavigate();
 
 export const BASE_URL = ""
 
@@ -17,7 +14,7 @@ export const handleSignIn = async (user) => {
         axios.defaults.headers.common[
           'Authorization'
         ] = `Bearer ${res.data.access}`
-        navigate("/dashboard");
+        window.location.href = "/dashboard"
       })
       .catch((err) => {
         console.error("error", err)
@@ -43,7 +40,7 @@ export const handleSignIn = async (user) => {
         axios.defaults.headers.common[
           'Authorization'
         ] = `Bearer ${res.data.access}`
-        navigate("/signin")
+        window.location.href = "/signin"
       })
       .catch((err) => {
         console.error("error", err)
