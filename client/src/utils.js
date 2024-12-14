@@ -14,7 +14,6 @@ export const handleSignIn = async (user) => {
         axios.defaults.headers.common[
           'Authorization'
         ] = `Bearer ${res.data.access}`
-        window.location.href = "/dashboard"
       })
       .catch((err) => {
         console.error("error", err)
@@ -23,6 +22,7 @@ export const handleSignIn = async (user) => {
       await axios.get(BASE_URL + `/api/user/`).then((res) => {
         console.log("data", res.data);
         localStorage.setItem("user", JSON.stringify(res.data))
+        window.location.href = "/dashboard"
       }).catch((err) => {
         console.error("error", err)
       })

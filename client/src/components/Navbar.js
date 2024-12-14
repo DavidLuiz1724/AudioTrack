@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className='navbar-wrapper'>
             <div className='symbol-container'>
                 <img src={symbol} />
-                <p>Welcome Back, {user.fullname}!</p>
+                <p>Welcome Back, {user?.fullname}!</p>
             </div>
 
             <div className='navbar-right'>
