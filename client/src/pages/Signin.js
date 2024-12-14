@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { handleSignIn } from "../utils";
 
 export default function Signin() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -19,7 +18,6 @@ export default function Signin() {
       "password": password
     }
     await handleSignIn(user);
-    navigate('/dashboard');
   }
   return (
     <div className="signin-container">

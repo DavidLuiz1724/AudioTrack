@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { handleSignIn, handleSignUp } from "../utils";
 
 const Signup = () => {
-  const navigate = useNavigate()
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,7 +18,6 @@ const Signup = () => {
       "password": password
     }
     await handleSignUp(user);
-    navigate('/signin');
   }
 
   return (
