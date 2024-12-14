@@ -1,11 +1,12 @@
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-const navigate = useNavigate();
+
 
 export const BASE_URL = "http://localhost:8000"
 
 export const handleSignIn = async (user) => {
+    const navigate = useNavigate();
     await axios
       .post(BASE_URL + '/api/token/', user, {
         headers: { 'Content-Type': 'application/json' },
@@ -32,6 +33,7 @@ export const handleSignIn = async (user) => {
   }
 
   export const handleSignUp = async (user) => {
+    const navigate = useNavigate();
     await axios
       .post(BASE_URL + '/api/signup/', user, {
         headers: { 'Content-Type': 'application/json' },
