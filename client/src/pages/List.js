@@ -91,7 +91,7 @@ const List = () => {
                   detects.map((detect) => (
                   <div className="row">
                     <audio className="file" controls>
-                      <source src={detect.filename} type="audio/wav"/>
+                      <source src={"/audio/" + detect.filename} type="audio/wav"/>
                     </audio>
                     <div className="time">{new Date(detect.time).toLocaleString()}</div>
                   </div>
