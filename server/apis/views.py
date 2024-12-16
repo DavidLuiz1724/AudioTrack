@@ -29,7 +29,7 @@ class AudioDetectView(viewsets.ModelViewSet):
     serializer_class = AudioDetectSerializer
     
     def get_queryset(self):
-        queryset = AudioDetect.objects.all()
+        queryset = AudioDetect.objects.all().order_by('time')
         stream_id = self.request.query_params.get("stream_id", None)
         if stream_id is not None:
             queryset = queryset.filter(stream__id=stream_id)
