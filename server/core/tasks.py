@@ -37,9 +37,10 @@ def track_audio_from_url(stream_id):
     sample_rate = 44100
     for file in files:
         audio_path = os.path.join(settings.MEDIA_ROOT, file.audio.name)
-        ad_audio, sample_rate = librosa.load(audio_path, sr=sample_rate, mono=True)
-        if maxlen < len(ad_audio):
-            maxlen = len(ad_audio)
+        if os.path.exists(audio_path):
+            ad_audio, sample_rate = librosa.load(audio_path, sr=sample_rate, mono=True)
+            if maxlen < len(ad_audio):
+                maxlen = len(ad_audio)
 
     seconds = int(maxlen / sample_rate + 1800)
     hour = int(seconds / 3600)
