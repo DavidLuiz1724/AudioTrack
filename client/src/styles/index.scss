@@ -209,6 +209,15 @@ body {
           padding: 8px 12px;
         }
 
+        .tbody {
+          max-height: 500px;
+          overflow: auto;
+        }
+
+        .tbody::-webkit-scrollbar {
+          display: none;
+        }
+
         .thead {
           font-weight: 500;
           display: flex;
