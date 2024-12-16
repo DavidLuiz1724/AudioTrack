@@ -152,7 +152,7 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = '/audio/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'server/audio')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'audio')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
