@@ -65,7 +65,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    'DATETIME_FORMAT': '%s'
+    'DATETIME_FORMAT': '%s000'
 }
 
 SIMPLE_JWT = {
