@@ -10,7 +10,7 @@ WORKDIR /app
 
 # install dependencies
 RUN apk update \
-    && apk add --no-cache build-base python3-dev py3-pip gcc g++ musl-dev llvm15 llvm15-dev llvm15-libs ffmpeg libsndfile-dev \
+    && apk add --no-cache postgresql-dev build-base python3-dev py3-pip gcc g++ musl-dev llvm15 llvm15-dev llvm15-libs ffmpeg libsndfile-dev \
     && ln -s /usr/lib/llvm15/bin/llvm-config /usr/bin/llvm-config
 
 # Install numpy first
