@@ -93,7 +93,7 @@ const List = () => {
                     <audio className="file" controls>
                       <source src={"/audio/" + detect.filename} type="audio/wav"/>
                     </audio>
-                    <div className="time">{new Date(detect.time).toLocaleString()}</div>
+                    <div className="time">{new Date(parseInt(detect.time) * 1000).toLocaleString()}</div>
                   </div>
                 ))
               ) : (
