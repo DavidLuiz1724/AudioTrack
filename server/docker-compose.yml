@@ -1,3 +1,5 @@
+version: '3'
+
 services:
   app:
     build:
@@ -14,14 +16,13 @@ services:
       - redis
   postgres:
     image: postgres:17-alpine
-    restart: always
+    restart: unless-stopped
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - PGDATA=/var/lib/postgresql/data
     ports:
       - 5432:5432
   redis:
@@ -43,4 +44,4 @@ services:
       - redis
 
 volumes:
-  postgres_data:
+  pgdata:
